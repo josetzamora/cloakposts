@@ -18,7 +18,7 @@ end_datetime = int(time.mktime(end_date.timetuple()))
 
 for cursor in range(start_datetime, end_datetime, interval):
     graph_connection = http.client.HTTPSConnection("graph.facebook.com")
-    graph_connection.request("GET", '/me/posts?access_oauthtoken=' + oauthtoken + '&since=' + str(cursor) + '&until=' + str(cursor + interval))
+    graph_connection.request("GET", '/me/posts?access_oauthtoken=' + oauth_token + '&since=' + str(cursor) + '&until=' + str(cursor + interval))
     graph_response = graph_connection.getresponse()
     print("Getting post ids")
     if graph_response.status == 200:
